@@ -32,7 +32,6 @@
         "postversion": "git push && git push --tags"
     },
     "dependencies": {
-        "@types/nano": "^6.2.0",
         "nano": "^6.4.0"
     },
     "devDependencies": {
