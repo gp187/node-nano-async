@@ -66,6 +66,6 @@ export {
     ViewDocument,
 } from "nano";
 
-export default <D>(config: Nano.Configuration): ServerScopeAsync | DocumentScopeAsync<D> => {
+export default <D>(config: Nano.Configuration | string): ServerScopeAsync | DocumentScopeAsync<D> => {
     return (new Wrapper()).wrap(nanoFactory(config));
 };
