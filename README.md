@@ -34,7 +34,7 @@ import { DocumentGetResponse, ... } from "nano"
 // Import custom document class
 import { MyDocument } from "./MyDocument"
 // Create a server context
-const serverAsync = nanoFactory({ url: "http://localhost:5984" }) as ServerScopeAsync
+const serverAsync = nanoAsync({ url: "http://localhost:5984" }) as ServerScopeAsync
 // Create a document context i.e. a "database" reference
 const databaseAsync: DocumentScopeAsync<MyDocument> = serverAsync.use<MyDocument>("mydb")
 
