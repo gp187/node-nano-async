@@ -38,8 +38,10 @@
     "devDependencies": {
         "@types/chai": "^3.5.2",
         "@types/mocha": "^2.2.41",
+        "@types/sinon": "^2.3.3",
         "chai": "^3.5.0",
         "mocha": "^3.3.0",
+        "sinon": "^3.2.1",
         "ts-node": "^3.0.4",
         "tslint": "^5.4.3",
         "typescript": "^2.3.2"
