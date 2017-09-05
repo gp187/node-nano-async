@@ -67,5 +67,5 @@ export {
 } from "nano";
 
 export default <D>(config: Nano.Configuration | string): ServerScopeAsync | DocumentScopeAsync<D> => {
-    return (new Wrapper()).wrap(nanoFactory(config));
+    return Wrapper.wrap(nanoFactory(config));
 };

@@ -6,14 +6,14 @@ import {isServerScope} from "./isServerScope";
 import {promisify} from "./promisify";
 
 export class Wrapper {
-    public wrapServerScope(serverScope: Nano.ServerScope): ServerScopeAsync {
+    public static wrapServerScope(serverScope: Nano.ServerScope): ServerScopeAsync {
         const serverScopeAsync: ServerScopeAsync = serverScope as any;
 
         const {use, scope} = serverScope;
 
-        serverScopeAsync.db = this.wrapDatabaseScope(serverScopeAsync.db);
-        serverScopeAsync.use = (db: string) => this.wrapDocumentScope(use(db));
-        serverScopeAsync.scope = (db: string) => this.wrapDocumentScope(scope(db));
+        serverScopeAsync.db = Wrapper.wrapDatabaseScope(serverScopeAsync.db);
+        serverScopeAsync.use = (db: string) => Wrapper.wrapDocumentScope(use(db));
+        serverScopeAsync.scope = (db: string) => Wrapper.wrapDocumentScope(scope(db));
 
         serverScopeAsync.authAsync = promisify(serverScopeAsync.auth);
         serverScopeAsync.sessionAsync = promisify(serverScopeAsync.session);
@@ -23,12 +23,12 @@ export class Wrapper {
         return serverScopeAsync;
     }
 
-    public wrapDatabaseScope(databaseScope: Nano.DatabaseScope): DatabaseScopeAsync {
+    public static wrapDatabaseScope(databaseScope: Nano.DatabaseScope): DatabaseScopeAsync {
         const databaseScopeAsync: DatabaseScopeAsync = databaseScope as any;
 
         const {use} = databaseScope;
 
-        databaseScopeAsync.use = (db: string) => this.wrapDocumentScope(use(db));
+        databaseScopeAsync.use = (db: string) => Wrapper.wrapDocumentScope(use(db));
 
         databaseScopeAsync.createAsync = promisify(databaseScopeAsync.create);
         databaseScopeAsync.getAsync = promisify(databaseScopeAsync.getAsync);
@@ -42,7 +42,7 @@ export class Wrapper {
         return databaseScopeAsync;
     }
 
-    public wrapDocumentScope<D>(documentScope: Nano.DocumentScope<D>): DocumentScopeAsync<D> {
+    public static wrapDocumentScope<D>(documentScope: Nano.DocumentScope<D>): DocumentScopeAsync<D> {
         const documentScopeAsync: DocumentScopeAsync<D> = documentScope as any;
 
         documentScopeAsync.infoAsync = promisify(documentScopeAsync.info);
@@ -78,7 +78,7 @@ export class Wrapper {
         return documentScopeAsync;
     }
 
-    public wrap<D>(nano: Nano.ServerScope | Nano.DocumentScope<D>): ServerScopeAsync | DocumentScopeAsync<D> {
-        return isServerScope(nano) ? this.wrapServerScope(nano) : this.wrapDocumentScope(nano);
+    public static wrap<D>(nano: Nano.ServerScope | Nano.DocumentScope<D>): ServerScopeAsync | DocumentScopeAsync<D> {
+        return isServerScope(nano) ? Wrapper.wrapServerScope(nano) : Wrapper.wrapDocumentScope(nano);
     }
 }
