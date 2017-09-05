@@ -12,7 +12,7 @@ The wrapper introduces new functions with 'Async' suffix to make using the origi
 ### Javascript
 
 ```js
-const nanoAsync = require('@vanioinformatika/nano-async') (
+const nanoAsync = require('nano-async') (
   // Create a server context
 const serverAsync = nanoAsync({ url: "http://localhost:5984" })
 // Create a document context i.e. a "database" reference
@@ -28,9 +28,8 @@ const [doc, headers] = await databaseAsync.getAsync(id, { attachments: true })
 ### TypeScript
 
 ```ts
-import { default as nanoAsync, ServerScopeAsync } from "@vanioinformatika/nano-async"
-// Import nano types
-import { DocumentGetResponse, ... } from "nano"
+// Import nano and nano-async types
+import { default as nanoAsync, ServerScopeAsync, DocumentGetResponse, ... } from "nano-async"
 // Import custom document class
 import { MyDocument } from "./MyDocument"
 // Create a server context
