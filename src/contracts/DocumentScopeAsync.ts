@@ -17,7 +17,7 @@ export interface DocumentScopeAsync<D> extends Nano.DocumentScope<D> {
     replicateAsync(target: string | Nano.DocumentScope<D>, options?: any): Promise<Nano.DatabaseReplicateResponse>;
 
     // http://docs.couchdb.org/en/latest/api/database/compact.html#post--db-_compact
-    compactAsync(): Promise<any>;
+    compactAsync(): Promise<Nano.OkResponse>;
 
     // http://docs.couchdb.org/en/latest/api/database/changes.html#get--db-_changes
     changesAsync(params?: Nano.DatabaseChangesParams): AsyncResponse<Nano.DatabaseChangesResponse>;
