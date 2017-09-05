@@ -31,7 +31,7 @@ export class Wrapper {
         databaseScopeAsync.use = (db: string) => Wrapper.wrapDocumentScope(use(db));
 
         databaseScopeAsync.createAsync = promisify(databaseScopeAsync.create);
-        databaseScopeAsync.getAsync = promisify(databaseScopeAsync.getAsync);
+        databaseScopeAsync.getAsync = promisify(databaseScopeAsync.get);
         databaseScopeAsync.destroyAsync = promisify(databaseScopeAsync.destroy);
         databaseScopeAsync.listAsync = promisify(databaseScopeAsync.list);
         databaseScopeAsync.compactAsync = promisify(databaseScopeAsync.compact);
