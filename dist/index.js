@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Logger_1 = require("./src/Logger");
-exports.Logger = Logger_1.Logger;
-exports.FluentConfig = Logger_1.FluentConfig;
+var Wrapper_1 = require("./src/Wrapper");
+var nanoFactory = require("nano");
+exports.default = function (config) {
+    return (new Wrapper_1.Wrapper()).wrap(nanoFactory(config));
+};
 //# sourceMappingURL=index.js.map
