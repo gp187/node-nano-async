@@ -1,4 +1,3 @@
-/// <reference types="nano" />
 import * as Nano from "nano";
 import { DocumentScopeAsync } from "./src/contracts/DocumentScopeAsync";
 import { ServerScopeAsync } from "./src/contracts/ServerScopeAsync";
