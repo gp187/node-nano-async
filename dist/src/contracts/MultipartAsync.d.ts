@@ -1,3 +1,4 @@
+/// <reference types="nano" />
 import * as Nano from "nano";
 import { AsyncResponse } from "../AsyncResponse";
 export interface MultipartAsync<D> extends Nano.Multipart<D> {

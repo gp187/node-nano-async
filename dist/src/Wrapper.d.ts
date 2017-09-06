@@ -1,3 +1,4 @@
+/// <reference types="nano" />
 import * as Nano from "nano";
 import { DatabaseScopeAsync } from "./contracts/DatabaseScopeAsync";
 import { DocumentScopeAsync } from "./contracts/DocumentScopeAsync";

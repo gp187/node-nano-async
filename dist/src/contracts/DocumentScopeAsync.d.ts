@@ -1,3 +1,4 @@
+/// <reference types="nano" />
 import * as Nano from "nano";
 import { AsyncResponse } from "../AsyncResponse";
 import { AttachmentAsync } from "./AttachmentAsync";

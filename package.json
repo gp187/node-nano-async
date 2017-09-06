@@ -24,6 +24,8 @@
     },
     "scripts": {
         "compile": "tsc",
+        "coverage": "nyc npm run test",
+        "coverage:ci": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
         "test": "mocha --require ts-node/register src/**/*.spec.ts",
         "lint": "npm run lint:ts",
         "lint:ts": "tslint --type-check --project . src/**/*.ts",
@@ -32,8 +34,10 @@
         "postversion": "git push && git push --tags"
     },
     "dependencies": {
+        "@types/nano": "^6.2.1",
         "@types/request": "^2.0.3",
-        "nano": "^6.4.0"
+        "nano": "^6.4.0",
+        "nyc": "^11.2.1"
     },
     "devDependencies": {
         "@types/chai": "^4.0.4",
