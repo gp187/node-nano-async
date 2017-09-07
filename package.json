@@ -36,8 +36,7 @@
     "dependencies": {
         "@types/nano": "^6.2.1",
         "@types/request": "^2.0.3",
-        "nano": "^6.4.0",
-        "nyc": "^11.2.1"
+        "nano": "^6.4.0"
     },
     "devDependencies": {
         "@types/chai": "^4.0.4",
@@ -45,6 +44,7 @@
         "@types/sinon": "^2.3.3",
         "chai": "^4.1.2",
         "mocha": "^3.5.0",
+        "nyc": "^11.2.1",
         "sinon": "^3.2.1",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
