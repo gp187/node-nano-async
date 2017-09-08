@@ -1,8 +1,11 @@
 import * as Nano from "nano";
 import {AsyncResponse} from "../AsyncResponse";
+import {DatabaseScopeAsync} from "./DatabaseScopeAsync";
 import {DocumentScopeAsync} from "./DocumentScopeAsync";
 
 export interface ServerScopeAsync extends Nano.ServerScope {
+    db: DatabaseScopeAsync;
+
     use<D>(db: string): DocumentScopeAsync<D>;
 
     scope<D>(db: string): DocumentScopeAsync<D>;
