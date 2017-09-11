@@ -23,7 +23,7 @@
         "node": ">6.9"
     },
     "scripts": {
-        "changelog:bump": "cross-var sed -i \"7a # ${npm_package_version}\\n\" ./CHANGELOG.md",
+        "changelog:bump": "cross-var sed -i \"7a # $npm_package_version\\n\" ./CHANGELOG.md",
         "compile": "tsc",
         "coverage": "nyc npm run test",
         "coverage:ci": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
