@@ -12,9 +12,9 @@ The wrapper introduces new functions with 'Async' suffix to make using the origi
 ### Javascript
 
 ```js
-const nanoAsync = require('nano-async') (
-  // Create a server context
-const serverAsync = nanoAsync({ url: "http://localhost:5984" })
+const { default: nanoAsync } = require('nano-async')
+// Create a server context
+const serverScope = nanoAsync({ url: "http://localhost:5984" })
 // Create a document context i.e. a "database" reference
 const databaseAsync = serverScope.use("mydb")
 
